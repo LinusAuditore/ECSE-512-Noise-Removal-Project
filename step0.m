@@ -1,5 +1,5 @@
 function [] = step0()
-    %disp('Hello, World!');
+    % 主函数
     [x, Fs] = audioread('.\audio_files\audiofile.wav'); % 读取音频文件
 
     % 绘制时域信息
@@ -29,6 +29,20 @@ function [] = step0()
     ylabel('Frequency (Hz)');
     title('Phase Spectrogram');
     colorbar;
+    
+    % STFT 合成
+    y = stft_synthesis(S, window, nfft, hop);
+
+    % 绘制合成后的时域信号
+    t_y = (0:length(y)-1)/Fs; % 创建时间向量
+    plot(t_y, y);
+    xlabel('Time (s)');
+    ylabel('Amplitude');
+    title('Synthesized Time Domain Signal');
+
+    % 输出合成后的音频到文件
+    outputFilename = 'synthesized_audio.wav';
+    audiowrite(outputFilename, y, Fs); % 写入音频文件
 end
 
 function [S, f, t] = stft_analysis(x, window, nfft, hop)
