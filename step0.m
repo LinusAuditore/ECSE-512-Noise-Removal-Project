@@ -40,7 +40,6 @@ function [S, f, t] = stft_analysis(x, window, nfft, hop, Fs)
     [S, f, t] = stft(x, Fs, 'Window', window, 'OverlapLength', hop, 'FFTLength', nfft);
 end
 
-
 function [x] = stft_synthesis(S, window, nfft, hop, Fs)
     % 使用 MATLAB 内置的 istft 函数
     x = istft(S, Fs, 'Window', window, 'OverlapLength', hop, 'FFTLength', nfft);
