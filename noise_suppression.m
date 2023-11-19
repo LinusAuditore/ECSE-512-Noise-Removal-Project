@@ -4,7 +4,7 @@ function [] = noise_suppression()
     clear;
 
     %% Obtain Clean Speech and Add Noise
-    [input,Fs] = audioread('clean_speech.wav'); % get clean speech input and the sampling frequency Fs
+    [input,Fs] = audioread('./audio_files/clean_speech.wav'); % get clean speech input and the sampling frequency Fs
     figure;
     plot(input);
     title('clean speech');
@@ -64,6 +64,8 @@ function [] = noise_suppression()
     plot(output);
     title('Noise Removed Signal');
     sound(output,Fs);
+    outputFilename = '.\audio_files\synthesized_audio.wav';
+    audiowrite(outputFilename, output, Fs); % 写入音频文件
 end
 
 %% Add Noise
