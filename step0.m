@@ -1,6 +1,7 @@
 function [] = step0()
     % 主函数
-    [x, Fs] = audioread('.\audio_files\audiofile.wav'); % 读取音频文件
+    [x, Fs] = audioread('.\audio_files\clean_speech0.wav'); % 读取音频文件
+    disp(Fs);
     
     % 计算STFT
     window = hamming(2048); % 定义窗口类型和长度
@@ -44,4 +45,3 @@ function [x] = stft_synthesis(S, window, nfft, hop, Fs)
     % 使用 MATLAB 内置的 istft 函数
     x = istft(S, Fs, 'Window', window, 'OverlapLength', hop, 'FFTLength', nfft);
 end
-
