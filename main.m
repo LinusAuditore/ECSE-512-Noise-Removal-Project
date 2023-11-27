@@ -1,5 +1,5 @@
 %% Main Function
-function [] = noise_suppression()
+function [] = main()
     clc;
     clear;
 
