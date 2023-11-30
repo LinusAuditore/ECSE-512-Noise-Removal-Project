@@ -1,1 +1,1 @@
-# ECSE-521-Noise-Removal-Project
+# ECSE-512-Noise-Removal-Project
